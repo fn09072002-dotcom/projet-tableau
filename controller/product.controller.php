@@ -29,3 +29,17 @@ function saveProduct(): void {
     $products[] = $newProduct;
     echo "Produit enregistré avec succès !\n";
 }
+
+
+function archiverProduit(): void {
+    global $productsArchived, $products;
+    $value = saisie("Veuillez renseigner le libellé : ");
+    $indexArchived = getProductByLibele($products, $value);
+    if ($indexArchived !== -1) {
+        $productArchived = supprimerProduit($indexArchived, $products);
+        $productsArchived[] = $productArchived;
+        echo "Produit archivé avec succès !\n";
+    } else {
+        echo "Produit non trouvé !\n";
+    }
+}

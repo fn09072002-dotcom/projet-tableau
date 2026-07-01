@@ -1,12 +1,4 @@
 <?php
-function showError(array $errors): void {
-    foreach ($errors as $errorField) {
-        foreach ($errorField as $error) {
-            echo "$error \n";
-        }
-    }
-}
-
 function required(string $value, array &$errors, string $errorRequired, string $fieldName = "libele"): void {
     if (empty($value)) {
         $errors[$fieldName]['required'] = $errorRequired;
