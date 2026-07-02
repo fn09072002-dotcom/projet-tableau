@@ -5,6 +5,7 @@ require 'model/client.model.php';
 require 'model/commande.model.php';
 
 require 'view/product.view.php';
+require 'view/client.view.php';
 
 
 require 'utils/validator.php';
@@ -21,5 +22,7 @@ require 'controller/client.controller.php';
 
 saveProduct();
 archiverProduit();
-listerProduits($products);          // produits non archivés
-listerProduits($productsArchived);  // produits archivés
+listerProduits($products);          
+listerProduits($productsArchived);  
+saveClient();
+listerClientsSansCommande();
