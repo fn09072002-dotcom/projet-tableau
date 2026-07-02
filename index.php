@@ -21,5 +21,6 @@ require 'controller/client.controller.php';
 
 saveProduct();
 archiverProduit();
-listerProduits($products);          // produits non archivés
-listerProduits($productsArchived);  // produits archivés
+listerProduits($products);          
+listerProduits($productsArchived);  
+saveClient();
