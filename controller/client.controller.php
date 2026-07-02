@@ -24,3 +24,9 @@ function saveClient(): void {
     $clients[] = $newClient;
     echo "Client enregistré avec succès !\n";
 }
+
+function listerClientsSansCommande(): void {
+    global $clients, $commandes;
+    $resultat = clientsSansCommande($clients, $commandes);
+    listerClients($resultat);
+}

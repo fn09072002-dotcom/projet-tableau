@@ -5,6 +5,7 @@ require 'model/client.model.php';
 require 'model/commande.model.php';
 
 require 'view/product.view.php';
+require 'view/client.view.php';
 
 
 require 'utils/validator.php';
@@ -24,3 +25,4 @@ archiverProduit();
 listerProduits($products);          
 listerProduits($productsArchived);  
 saveClient();
+listerClientsSansCommande();
