@@ -4,17 +4,17 @@ function saveProduct(): void {
     do {
         $errors = [];
         $libelle = saisie("Entrez le libellé: ");
-        required($libelle, $errors, "Le libellé est obligatoire");
-        unique($products, $libelle, $errors, "Ce libellé existe déjà");
+        required($libelle, $errors, MSG_LIBELE_REQUIRED, FIELD_LIBELE);
+        unique($products, $libelle, $errors, MSG_LIBELE_UNIQUE, FIELD_LIBELE);
 
         $prix = (int)saisie("Entrez le prix: ");
         if ($prix <= 0) {
-            $errors['prix']['positif'] = "Le prix doit être positif";
+            $errors[FIELD_PRIX][ERROR_POSITIF] = MSG_PRIX_POSITIF;
         }
 
         $quantite = (int)saisie("Entrez la quantité: ");
         if ($quantite <= 0) {
-            $errors['quantite']['positif'] = "La quantité doit être positive";
+            $errors[FIELD_QUANTITE][ERROR_POSITIF] = MSG_QUANTITE_POSITIF;
         }
 
         showError($errors);
@@ -22,14 +22,13 @@ function saveProduct(): void {
 
     $newProduct = [
         "ref"      => genererReference($products),
-        "libele"   => $libelle,
-        "prix"     => $prix,
-        "quantite" => $quantite,
+        FIELD_LIBELE   => $libelle,
+        FIELD_PRIX     => $prix,
+        FIELD_QUANTITE => $quantite,
     ];
     $products[] = $newProduct;
     echo "Produit enregistré avec succès !\n";
 }
-
 
 function archiverProduit(): void {
     global $productsArchived, $products;
